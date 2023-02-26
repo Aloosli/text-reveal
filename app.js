@@ -21,3 +21,16 @@ tl.fromTo(".cta4", { x: "100%", opacity: 0.7 }, { x: 0, opcaity: 1 }, "<20%");
 tl.fromTo(".cta5", { x: "-100%", opacity: 0.7 }, { x: 0, opcaity: 1 }, "<20%");
 tl.fromTo(".cta6", { y: "100%", opacity: 0.7 }, { y: 0, opcaity: 1 }, "<20%");
 tl.fromTo(".cta-btn", { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "<");
+
+// split text alternative (to paid version)
+
+const logo = document.querySelector(".logo");
+const letters = logo.textContent.split("");
+
+logo.textContent = "";
+
+letters.forEach((letter) => {
+  logo.innerHTML += '<span class="letter">' + letter + "</span>";
+});
+gsap.set(".letter", { display: "inline-block" });
+gsap.fromTo(".letter", { y: '100%' }, { y: 0, delay: 2, stagger: 0.05, ease: 'back.out(3)' });
